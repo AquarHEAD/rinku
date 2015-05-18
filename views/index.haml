@@ -23,4 +23,7 @@
     %ul
       - @bookmarks.each do |bk|
         %li
-          %a{href: bk[:link]} #{bk[:title]}
+          %a{href: bk[:link]}
+            = bk[:title]
+          %small
+            = bk[:added_at].iso8601

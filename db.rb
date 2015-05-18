@@ -9,6 +9,6 @@ DB.create_table :bookmarks do
   String :title, :null => false
   String :link, :null => false
   String :comment
-  DateTime :added_at, :default => Time::now
+  DateTime :added_at
   index :added_at
 end

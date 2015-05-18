@@ -20,6 +20,7 @@ post '/add/?' do
     @errors.push "Link cannot be empty"
   end
   bks = DB[:bookmarks]
-  bks.insert(title: params[:title], link: params[:link], comment: params[:comment])
+  link_no_utm = params[:link].gsub(/&?utm_.+?(&|$)/, '')
+  bks.insert(title: params[:title], link: link_no_utm, comment: params[:comment], added_at: Time::now)
   redirect '/'
 end

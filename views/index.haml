@@ -1,0 +1,26 @@
+.row
+  .col-md-12
+    %h1
+      Index
+      %small
+        %button.btn.btn-primary{type: "button", 'data-toggle': "collapse", 'data-target': "#add-link", 'aria-expanded': "false", 'aria-controls': "add-link"} Add Link
+.row.collapse#add-link
+  .col-md-12
+    %form{action: "/add", method: "POST"}
+      .form-group
+        %label Title
+        %input.form-control{type: "text", placeholder: "Title", name: "title"}
+      .form-group
+        %label Link
+        %input.form-control{type: "text", placeholder: "http://", name: "link"}
+      .form-group
+        %label Comment
+        %textarea.form-control{rows: 5, name: "comment"}
+      %button.btn.btn-default{type: "submit"}Add
+.row
+  .col-md-12
+    %hr/
+    %ul
+      - @bookmarks.each do |bk|
+        %li
+          %a{href: bk[:link]} #{bk[:title]}

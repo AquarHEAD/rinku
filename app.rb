@@ -6,7 +6,7 @@ require 'sequel'
 DB = Sequel.postgres('rinku', :user => 'rinku', :password => 'rinku', :host => 'localhost')
 
 get '/' do
-  @bookmarks = DB[:bookmarks]
+  @bookmarks = DB[:bookmarks].reverse_order(:added_at)
   @title = "Index"
   haml :index
 end

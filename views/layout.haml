@@ -9,6 +9,11 @@
     %script{src: "//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"}
     %script{src: "//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"}
     %script{src: "//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.min.js"}
-  %body
+  %body{style: "padding-bottom:70px;"}
     .container-fluid
       = yield
+    %nav.navbar.navbar-default.navbar-fixed-bottom
+      .container-fluid
+        %p.navbar-text
+          Made with ❤ by
+          %a{href: "about.aquarhead.me"} AquarHEAD Lou

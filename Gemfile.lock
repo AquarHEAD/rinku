@@ -16,6 +16,7 @@ GEM
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
+    redcarpet (3.2.3)
     sequel (4.22.0)
     shotgun (0.9.1)
       rack (>= 1.0)
@@ -43,6 +44,7 @@ DEPENDENCIES
   byebug
   haml
   pg
+  redcarpet
   sequel
   shotgun
   sinatra

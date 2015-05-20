@@ -25,5 +25,14 @@
         %li
           %a{href: bk[:link]}
             = bk[:title]
-          %small
-            = bk[:added_at].iso8601
+          %small.date{iso8601date: bk[:added_at].iso8601}
+          - if bk[:comment].length > 0
+            %br/
+            %blockquote
+              :markdown
+                #{bk[:comment]}
+
+:javascript
+  $(".date").each(function(idx, d) {
+    d.innerText = moment(d.attributes["iso8601date"].textContent, moment.ISO_8601).fromNow();
+  });

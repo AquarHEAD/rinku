@@ -9,6 +9,9 @@ gem 'haml'
 gem 'sequel'
 gem 'pg'
 
+# Markdown
+gem 'redcarpet'
+
 gem 'thin'
 
 group :development do

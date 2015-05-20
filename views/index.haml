@@ -20,15 +20,14 @@
 .row
   .col-md-12
     %hr/
-    %ul
+    .list-group
       - @bookmarks.each do |bk|
-        %li
-          %a{href: bk[:link]}
-            = bk[:title]
-          %small.date{iso8601date: bk[:added_at].iso8601}
+        %a.list-group-item{href: bk[:link]}
+          %h4.list-group-item-heading
+            #{bk[:title]}
+            %small.date{iso8601date: bk[:added_at].iso8601}
           - if bk[:comment].length > 0
-            %br/
-            %blockquote
+            %blockquote.list-group-item-text
               :markdown
                 #{bk[:comment]}
 

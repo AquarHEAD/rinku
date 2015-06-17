@@ -1,9 +1,8 @@
 .row
-  .col-md-12
+  .col-md-8.col-md-offset-2
     %h1
       Index
-      %small
-        %button.btn.btn-primary{type: "button", 'data-toggle': "collapse", 'data-target': "#add-link", 'aria-expanded': "false", 'aria-controls': "add-link"} Add Link
+      %button.btn.btn-primary{type: "button", 'data-toggle': "collapse", 'data-target': "#add-link", 'aria-expanded': "false", 'aria-controls': "add-link"} Add Link
 .row.collapse#add-link
   .col-md-12
     %form{action: "/add", method: "POST"}
@@ -18,13 +17,14 @@
         %textarea.form-control{rows: 5, name: "comment"}
       %button.btn.btn-default{type: "submit"}Add
 .row
-  .col-md-12
+  .col-md-8.col-md-offset-2
     %hr/
     .list-group
       - @bookmarks.each do |bk|
-        %a.list-group-item{href: bk[:link]}
+        .list-group-item
           %h4.list-group-item-heading
-            #{bk[:title]}
+            %a{href: bk[:link]}
+              = bk[:title]
             %small.date{iso8601date: bk[:added_at].iso8601}
           - if bk[:comment].length > 0
             %blockquote.list-group-item-text
